@@ -1,0 +1,76 @@
+# def caesar(msg, key):
+#   alphabet = 'abcdefghijklmnopqrstuvwxyz'
+#   new_message = ""
+#   for c in msg:
+#     position = alphabet.find(c)
+#     new_position = (position + key) % len(alphabet)
+#     new_character = alphabet[new_position]
+#     new_message += new_character
+#   return new_message
+# key = 3
+# while True:
+#   message = input('Please enter a message: ')
+#   if message == 'q': break
+#   encry_message = caesar(message, key)
+#   decry_message = caesar(encry_message, -key)
+#   if message.isupper() : 
+#     encry_message = caesar(message.lower(), key)
+#     decry_message = caesar(encry_message, -key)
+#     print('Encrypted message: ', encry_message.upper())
+#     print('Decrypted message: ', decry_message.upper())
+#     break
+#   print('Encrypted message: ', encry_message)
+#   print('Decrypted message: ', decry_message)
+
+def caesar_encryption(msg):
+  alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  privare_key = 19
+  encry_message = ""
+
+  for c in msg:
+    position = alphabet.find(c)
+    new_position = (position + privare_key) % len(alphabet)
+    new_character = alphabet[new_position]
+    encry_message += new_character
+  return encry_message
+ 
+def caesar_decryption(msg, public_key):
+  alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  private_key = 23
+  decry_message = ""
+  key = int(public_key / private_key)
+  for c in msg:
+    position = alphabet.find(c)
+    new_position = (position - key) % len(alphabet)
+    new_character = alphabet[new_position]
+    decry_message += new_character
+  return decry_message
+
+while True:
+  message = input('Please enter a message: ')
+  if message == 'q': break
+  encry_message = caesar_encryption(message, key)
+  decry_message = caesar_decryption(encry_message, -key)
+  if message.isupper() : 
+    encry_message = caesar(message.lower(), key)
+    decry_message = caesar(encry_message, -key)
+    print('Encrypted message: ', encry_message.upper())
+    print('Decrypted message: ', decry_message.upper())
+    break
+  print('Encrypted message: ', encry_message)
+  print('Decrypted message: ', decry_message)
+
+# def factorization(n):
+#   #n = n/2
+#   for c in range(2, int(n/2)) :
+#     if n % c == 0 :
+#       print(c)
+
+# from time import time
+# #start the timer
+# start = time()
+# n = int(input('N: '))
+# factorization(n) #this function has been implemented in 7.1.
+# #stop the timer
+# end = time()
+# print('Elapsed time: {} seconds'.format(end - start))
