@@ -1,0 +1,182 @@
+import random
+import time
+from sense_hat import SenseHat
+import time
+
+sense = SenseHat()
+
+
+# sense.show_message("Hello world", scroll_speed=0.1, text_colour = (255,0,0), back_colour=(0,0,255))
+# sense.show_letter("A", text_colour=(255,0,0), back_colour=(0,0,255))
+
+# def random_colour():
+# # randint - random integer between an interval
+#   random_red = random.randint(0, 255)
+#   random_green = random.randint(0, 255)
+#   random_blue = random.randint(0, 255)
+#   return (random_red, random_green, random_blue)
+  
+# sense.show_letter("D", random_colour())
+# # sleep - temporarily pause your program
+# time.sleep(1)
+# sense.show_letter("A", random_colour())
+# time.sleep(1)
+# sense.show_letter("N", random_colour())
+
+# time.sleep(1)
+# sense.show_letter("I", random_colour())
+# time.sleep(1)
+# sense.show_letter("E", random_colour())
+# time.sleep(1)
+# sense.show_letter("L", random_colour())
+# time.sleep(1)
+
+# sense.clear()
+
+
+# w = (255, 255, 255)
+# b = (0, 0, 255)
+
+# smiley_pixels = [
+# w, w, w, w, w, w, w, w,
+# w, b, b, w, w, b, b, w,
+# w, b, b, w, w, b, b, w,
+# w, w, w, w, w, w, w, w,
+# w, w, w, w, w, w, w, w,
+# w, b, w, w, w, w, b, w,
+# w, w, b, b, b, b, w, w,
+# w, w, w, w, w, w, w, w]
+ 
+# sense.set_pixels(smiley_pixels)
+
+# while True:
+# #go throw all joystick’s events
+#   for event in sense.stick.get_events():
+# # Check if the joystick was pressed
+#     if event.action == "pressed":
+# # Check which direction
+
+#       if event.direction == "up":
+#         sense.show_letter("U") # Up arrow
+#       elif event.direction == "down":
+#         sense.show_letter("D") # Down arrow
+#       elif event.direction == "left":
+#         sense.show_letter("L") # Left arrow
+#       elif event.direction == "right":
+#         sense.show_letter("R") # Right arrow
+#       elif event.direction == "middle":
+#         sense.show_letter("M") # Enter key
+
+#       time.sleep(0.22)
+#       sense.clear()
+
+# def red():
+#   sense.clear(255, 0, 0)
+# def blue():
+#   sense.clear(0, 0, 255)
+# def green():
+#   sense.clear(0, 255, 0)
+# def yellow():
+#   sense.clear(255, 255, 0)
+  
+# sense.stick.direction_up = red
+# sense.stick.direction_down = blue
+# sense.stick.direction_left = green
+# sense.stick.direction_right = yellow
+# sense.stick.direction_middle = sense.clear
+
+# while True:
+# # do nothing
+#   pass
+sense.clear()
+o = (0,0,0) 
+b = (0,0,255)
+
+one_img = [
+ o,o,o,o,o,o,o,o,
+ o,o,o,o,o,o,o,o,
+ o,o,o,o,o,o,o,o,
+ o,o,o,b,b,o,o,o,
+ o,o,o,b,b,o,o,o,
+ o,o,o,o,o,o,o,o,
+ o,o,o,o,o,o,o,o,
+ o,o,o,o,o,o,o,o]
+
+two_img = [
+ o,o,o,o,o,o,o,o,
+ o,b,b,o,o,o,o,o,
+ o,b,b,o,o,o,o,o,
+ o,o,o,o,o,o,o,o,
+ o,o,o,o,o,o,o,o,
+ o,o,o,o,o,b,b,o,
+ o,o,o,o,o,b,b,o,
+ o,o,o,o,o,o,o,o]
+ 
+three_img = [
+ o,o,o,o,o,o,o,o,
+ o,b,b,o,o,o,o,o,
+ o,b,b,o,o,o,o,o,
+ o,o,o,b,b,o,o,o,
+ o,o,o,b,b,o,o,o,
+ o,o,o,o,o,b,b,o,
+ o,o,o,o,o,b,b,o,
+ o,o,o,o,o,o,o,o]
+ 
+four_img = [
+ o,o,o,o,o,o,o,o,
+ o,b,b,o,o,b,b,o,
+ o,b,b,o,o,b,b,o,
+ o,o,o,o,o,o,o,o,
+ o,o,o,o,o,o,o,o,
+ o,b,b,o,o,b,b,o,
+ o,b,b,o,o,b,b,o,
+ o,o,o,o,o,o,o,o]
+ 
+five_img = [
+ o,o,o,o,o,o,o,o,
+ o,b,b,o,o,b,b,o,
+ o,b,b,o,o,b,b,o,
+ o,o,o,b,b,o,o,o,
+ o,o,o,b,b,o,o,o,
+ o,b,b,o,o,b,b,o,
+ o,b,b,o,o,b,b,o,
+ o,o,o,o,o,o,o,o]
+ 
+six_img = [
+ o,o,o,o,o,o,o,o,
+ o,b,b,o,o,b,b,o,
+ o,b,b,o,o,b,b,o,
+ o,b,b,b,b,b,b,o,
+ o,b,b,b,b,b,b,o,
+ o,b,b,o,o,b,b,o,
+ o,b,b,o,o,b,b,o,
+ o,o,o,o,o,o,o,o]
+ 
+while True:
+# # do nothing
+   pass
+
+def number_gen(event):
+  # while True:
+    if event.action == "pressed":
+      val = random.randint(1,6)
+      print(val)
+      if val == 1:
+        sense.set_pixels(one_img)
+      elif val == 2:
+        sense.set_pixels(two_img)
+      elif val == 3:
+        sense.set_pixels(three_img)
+      elif val == 4:
+        sense.set_pixels(four_img)
+      elif val == 5:
+        sense.set_pixels(five_img)
+      elif val == 6:
+        sense.set_pixels(six_img)
+    
+      time.sleep(2)
+      sense.clear()
+  # pass
+# while True:
+# # do nothing
+#   pass
