@@ -19,50 +19,27 @@ space = [
  n, n, n, n, n, n, n, n
  ]
  
-# def shift_right():
-# #   sense.set_pixels(space)
-#   p[0]+= 1
-#   sense.set_pixel(p[0], p[1], 255, 0, 0)
-#   sense.set_pixel(p[0]-3, p[1], 0, 0, 0)
+def shift_right():
+  p[0]+= 1
+  sense.set_pixel(p[0], p[1], 255, 0, 0)
+  sense.set_pixel(p[0]-3, p[1], 0, 0, 0)
 
-# def shift_left():
-# #   sense.set_pixels(space)
-#   p[0]-= 1
-#   sense.set_pixel(p[0]-2, p[1], 255, 0, 0)
-#   sense.set_pixel(p[0]+1, p[1], 0, 0, 0)
+def shift_left():
+  p[0]-= 1
+  sense.set_pixel(p[0]-2, p[1], 255, 0, 0)
+  sense.set_pixel(p[0]+1, p[1], 0, 0, 0)
   
 # def main():
-#   sense.set_pixel(5, 5, 0, 255, 0)
 #   global p
-#   while True:
-#     while True:
-#       #shift_right()
-#       sense.set_pixels(space)
-#       p[0]+= 1
-#       sense.set_pixel(p[0], p[1], 0, 255, 0)
-#       sense.set_pixel(p[0]-3, p[1], 0, 0, 0)
-#       sleep(speed)
-#       if p[0] == space_size-1: break
-
-#     while True:
-#     # shift_left()
-#       sense.set_pixels(space)
-#       p[0]-= 1
-#       sense.set_pixel(p[0], p[1], 0, 255, 0)
-#       sense.set_pixel(p[0]+3, p[1], 0, 0, 0)
-#       sleep(speed)
-#       if p[0] == light_len-1: break
-  
-
 sense.set_pixels(space)
 while True:
-  while (p[0] != space_size-1):
-    p[0]+= 1
-    sense.set_pixel(p[0], p[1], 255, 0, 0)
-    sense.set_pixel(p[0]-3, p[1], 0, 0, 0)
+  while True:
+    shift_right()
     sleep(speed)
-  while (p[0] != light_len-1 ):
-    p[0]-= 1
-    sense.set_pixel(p[0]-2, p[1], 255, 0, 0)
-    sense.set_pixel(p[0]+1, p[1], 0, 0, 0)
+    if p[0] == space_size-1:break
+
+  while True:
+    shift_left()
     sleep(speed)
+    if p[0] == light_len-1:break
+  
