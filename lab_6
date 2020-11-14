@@ -97,18 +97,18 @@ def button_event(event):
       
 sense.stick.direction_middle = button_event
 
-def main():
-  global state
-  while True:
-    if state == 0:
-      red_state(3)
-    elif state == 1:
-      red_yellow_state(1)
-    elif state == 2:
-      green_state(2)
-    elif state == 3:
-      yellow_state(1)
-    else:
-      out_of_order_state()
-    set_state()
+#def main():
+#  global state
+while True:
+ if state == 0:
+     red_state(3)
+   elif state == 1:
+     red_yellow_state(1)
+   elif state == 2:
+     green_state(2)
+   elif state == 3:
+     yellow_state(1)
+   else:
+   out_of_order_state()
+  set_state()
 
