@@ -5,7 +5,7 @@ from time import sleep
 sense = SenseHat()
 speed = 0.4
 basket = [7,4]
-up_down = -1
+up_down = 1
 score = 0
 w = (0,0,0)
 r = (255,0,0)
@@ -64,30 +64,37 @@ while game_alive:
   y = random.randint(0,7)
 # random.choice() – randomly selects a value from a list
   d = random.choice([-1,1])
-#put the ball into the game space
+  #put the ball into the game space
   update_space(x, y, r)
-#while the ball is in the game space
+  #while the ball is in the game space
   while True:
     sleep(speed)
     update_space(x, y, w)
-#ball is on the edge of x dimension
+    #ball is on the edge of x dimension
     if x == 7:
       if y == basket[1] - 1 or y == basket[1]:
-#ball is in the basket
+      #ball is in the basket
         update_space(x, y, b)
         up_down = -1
         score += 1
-        break
+        #break
       else:
-#ball is out of the space
+        #ball is out of the space
         game_alive = False
         break
-    #ball reached the right side of the space
-    if y == 7 and d == 1:
+    #ball reached the right side of the space from top
+    if y == 7 and d == 1 and up_down == 1:
       d = -1
-#ball reached the left side of the space
-    elif y == 0 and d == -1:
+    #ball reached the left side of the space from top
+    elif y == 0 and d == -1 and up_down == 1:
       d = 1
+    #ball reached the right side of the space from down
+    if y == 7 and d == 1 and up_down == -1:
+      d = -1
+    #ball reached the left side of the space from down
+    elif y == 0 and d == -1 and up_down == -1:
+      d = 1
+    #ball reached the top
     elif x == 0 and up_down == -1:
       up_down = 1
     y += d
@@ -98,4 +105,3 @@ sense.clear()
 sense.show_message('Game over!', scroll_speed=0.05, back_colour=w)
 sense.show_message('Score:  ' + str(score), scroll_speed=0.02,
 back_colour=w)
-
