@@ -8,6 +8,7 @@ senseHat.low_light = True
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 w = (0,0,0)
+b = (255, 255, 255)
 score = 0
 START_DELAY = 3
 MATRIX_MIN_VALUE = 0
@@ -129,4 +130,3 @@ if gameOverFlag:
   senseHat.clear()
   senseHat.show_message('Game over!', scroll_speed=0.05, back_colour=w)
   senseHat.show_message('Score:  ' + str(score), scroll_speed=0.05,back_colour=w)
-  
